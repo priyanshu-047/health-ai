@@ -19,3 +19,35 @@ symptoms,disease,category,sub_category,severity,age_group,india_relevance,keywor
 "skin itching;red patches;swelling",allergic_reaction,immune,allergy,LOW,all,HIGH,allergy;itching;skin
 "burning urination;fever;lower back pain",kidney_infection,urinary,infection,HIGH,adult,HIGH,kidney;infection;fever
 "fatigue;hair loss;weight gain",hypothyroidism,endocrine,hormonal disorder,MID,adult,HIGH,thyroid;hormone;fatigue
+
+
+"fever;chills;profuse sweating",malaria,parasitic,mosquito disease,HIGH,all,HIGH,malaria;fever;chills
+"prolonged fever;stomach pain;weakness",typhoid,bacterial,waterborne,HIGH,all,HIGH,typhoid;fever;water
+"severe watery diarrhea;leg cramps;dehydration",cholera,bacterial,waterborne,CRITICAL,all,HIGH,cholera;diarrhea;water
+"irregular periods;excess facial hair;weight gain",polycystic_ovary_syndrome,endocrine,reproductive,MID,adult,HIGH,pcos;periods;hormones
+"bone pain;muscle weakness;fatigue",vitamin_d_deficiency,nutritional,deficiency,LOW,all,HIGH,vitamind;bone;fatigue
+"extreme fatigue;pale skin;cold hands and feet",iron_deficiency_anemia,blood,deficiency,MID,all,HIGH,anemia;iron;blood
+"red eyes;eye discharge;itching",conjunctivitis,eye,infection,LOW,all,HIGH,pink eye;eye;infection
+"fever;headache;excessive salivation;fear of water",rabies,viral,zoonotic,CRITICAL,all,HIGH,rabies;dog bite;water
+"prolonged fever;weight loss;enlarged spleen",kala_azar,parasitic,vector-borne,HIGH,all,HIGH,sandfly;fever;spleen
+"sudden fever;severe joint pain;rash",chikungunya,viral,mosquito disease,HIGH,all,HIGH,chikungunya;joint pain;mosquito
+"light skin patches;reduced sensation;muscle weakness",leprosy,bacterial,chronic infection,MID,all,MID,leprosy;skin;nerves
+"intense itching;pimple-like rash;burrows on skin",scabies,dermatological,parasitic,LOW,all,HIGH,scabies;itch;skin
+"cough with phlegm;fever;difficulty breathing",pneumonia,respiratory,infection,HIGH,all,HIGH,lungs;infection;cough
+"sudden pain on right side of lower abdomen;nausea;fever",appendicitis,digestive,emergency,CRITICAL,all,HIGH,appendix;stomach pain;surgery
+"itchy blister rash;fever;fatigue",chickenpox,viral,infection,MID,child,HIGH,pox;rash;fever
+"high fever;cough;koplik spots;full body rash",measles,viral,infection,HIGH,child,MID,measles;rash;fever
+"jaw cramping;muscle spasms;stiffness",tetanus,bacterial,toxin,CRITICAL,all,HIGH,tetanus;lockjaw;spasm
+"red scaly ring-shaped patch;itching;hair loss",ringworm,dermatological,fungal,LOW,all,HIGH,ringworm;fungus;skin
+"heartburn;chest pain;regurgitation of food",gastroesophageal_reflux_disease,digestive,chronic,LOW,adult,HIGH,acidity;reflux;heartburn
+"cloudy vision;difficulty seeing at night;sensitivity to light",cataract,eye,degenerative,LOW,elderly,HIGH,eye;vision;cataract
+"back pain;loss of height;bone fractures easily",osteoporosis,musculoskeletal,degenerative,MID,elderly,HIGH,bones;fracture;calcium
+"burning stomach pain;bloating;heartburn",peptic_ulcer,digestive,gastrointestinal,MID,adult,HIGH,ulcer;stomach;acid
+"severe eye pain;blurred vision;halos around lights",glaucoma,eye,optic nerve,HIGH,elderly,HIGH,eye pressure;vision;blindness
+"sudden numbness in face;slurred speech;difficulty walking",stroke,neurological,vascular,CRITICAL,elderly,HIGH,stroke;paralysis;brain
+"frequent headaches;shortness of breath;nosebleeds",hypertension,cardiovascular,chronic,HIGH,adult,HIGH,bp;blood pressure;heart
+"persistent cough lasting weeks;chest pain;coughing up blood",lung_cancer,oncology,malignancy,CRITICAL,adult,MID,cancer;lungs;tumor
+"painful urination;yellow discharge;pelvic pain",gonorrhea,reproductive,sti,HIGH,adult,HIGH,sti;infection;discharge
+"swollen lymph nodes;sore throat;fatigue",mononucleosis,viral,infection,MID,adult,LOW,mono;glandular fever;kissing disease
+"thick white vaginal discharge;itching;burning",vaginal_candidiasis,reproductive,fungal,LOW,adult,HIGH,yeast;infection;discharge
+"chest burning;sour taste in mouth;difficulty swallowing",acid_reflux,digestive,gastrointestinal,LOW,all,HIGH,acidity;gerd;stomach
