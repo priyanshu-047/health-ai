@@ -1,33 +1,21 @@
-symptoms,label
-"chest pain spreading to left arm and jaw",heart_attack
-"shortness of breath with cold sweats and chest discomfort",heart_attack
-"continuous fever with general malaise and decreased appetite",viral_fever
-"fever with generalised weakness and mild headache",viral_fever
-"fever returning after two to three days with chills and sweating",viral_fever
-"low grade fever persisting for several days with fatigue",viral_fever
-"high fever with swollen lymph nodes and fatigue",viral_fever
-"blocked nose with reduced smell and taste",cold
-"clear runny nose progressing to thick yellow discharge",cold
-"mild throat discomfort with frequent sneezing and clear discharge",cold
-"nasal congestion with facial pressure and mild headache",cold
-"sore throat worse in the morning with stuffy nose and mild cough",cold
-"abrupt onset of high fever with extreme fatigue and headache",influenza
-"dry nonproductive cough with fever and severe muscle pain",influenza
-"flu symptoms with high fever above 102F and profound tiredness",influenza
-"sudden chills with high temperature and painful limbs",influenza
-"severe flu with fever sweating and complete loss of appetite",influenza
-"debilitating one-sided headache with aura and extreme light sensitivity",migraine
-"intense throbbing headache with nausea and vomiting",migraine
-"pulsating head pain with phonophobia and photophobia",migraine
-"migraine preceded by visual zigzag lines and neck stiffness",migraine
-"headache worsened by physical activity and light requiring dark room",migraine
-"abdominal cramps with watery stools and nausea after eating out",food_poisoning
-"frequent watery stools with severe stomach pain and mild fever",food_poisoning
-"sudden onset of profuse vomiting and diarrhea causing dehydration",food_poisoning
-"food poisoning with dizziness cold sweats and loose motions",food_poisoning
-"nausea and severe stomach cramps starting a few hours after a meal",food_poisoning
-"high fever with severe pain behind the eyes and nausea",dengue
-"dengue fever with bleeding gums skin rash and severe headache",dengue
-"sudden high fever with intense joint and muscle pain",dengue
-"fever with thrombocytopenia signs skin bruising and fatigue",dengue
-"high temperature with skin petechiae and retro-orbital pain",dengue
+symptoms,disease,category,sub_category,severity,age_group,india_relevance,keywords
+"burning urination;frequent urination;lower abdominal pain",urinary_tract_infection,urinary,infection,MID,adult,HIGH,uti;urine;burning
+"pain during urination;blood in urine;flank pain",kidney_stone,urinary,stone,HIGH,adult,HIGH,kidney;stone;blood urine
+"high fever;skin rash;bleeding gums",dengue_hemorrhagic,viral,mosquito disease,CRITICAL,all,HIGH,dengue;platelet;bleeding
+"high fever;body ache;fatigue",viral_fever,viral,infection,MID,all,HIGH,fever;viral;infection
+"dry cough;sore throat;runny nose",common_cold,respiratory,upper infection,LOW,all,HIGH,cold;cough;flu
+"high fever;cough;body pain;fatigue",influenza,respiratory,flu,MID,all,HIGH,flu;virus;fever
+"chest pain;sweating;left arm pain;breathing difficulty",heart_attack,cardiac,emergency,CRITICAL,adult,HIGH,heart;chest pain;emergency
+"severe headache;nausea;sensitivity to light",migraine,neurological,headache,MID,adult,HIGH,migraine;head pain;light sensitivity
+"vomiting;diarrhea;stomach cramps",food_poisoning,digestive,infection,MID,all,HIGH,food;vomit;infection
+"yellow eyes;dark urine;fatigue",hepatitis_liver_disease,hepatic,viral liver,HIGH,adult,HIGH,jaundice;liver;hepatitis
+"shortness of breath;wheezing;chest tightness",asthma,respiratory,chronic,HIGH,child,HIGH,asthma;lungs;breathing
+"high fever;stiff neck;confusion",meningitis,neurological,brain infection,CRITICAL,all,HIGH,brain;infection;neck stiffness
+"joint pain;swelling;morning stiffness",arthritis,musculoskeletal,autoimmune,MID,elderly,HIGH,joint;pain;swelling
+"excess thirst;frequent urination;fatigue",diabetes,endocrine,metabolic,MID,adult,HIGH,sugar;diabetes;thirst
+"fatigue;weight gain;cold intolerance",hypothyroidism,endocrine,hormonal,MID,adult,HIGH,thyroid;fatigue;weight
+"persistent cough;night sweats;weight loss",tuberculosis,respiratory,bacterial,HIGH,adult,HIGH,tb;cough;lungs
+"severe stomach pain;vomiting;dehydration",gastroenteritis,digestive,infection,MID,all,HIGH,stomach;vomit;diarrhea
+"skin itching;red patches;swelling",allergic_reaction,immune,allergy,LOW,all,HIGH,allergy;itching;skin
+"burning urination;fever;lower back pain",kidney_infection,urinary,infection,HIGH,adult,HIGH,kidney;infection;fever
+"fatigue;hair loss;weight gain",hypothyroidism,endocrine,hormonal disorder,MID,adult,HIGH,thyroid;hormone;fatigue

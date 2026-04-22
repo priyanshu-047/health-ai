@@ -1,28 +1,23 @@
-import pickle
+import joblib
 
-# load ONCE only
-model = pickle.load(open("app/models/symptom/model.pkl", "rb"))
-vectorizer = pickle.load(open("app/models/symptom/vectorizer.pkl", "rb"))
+model = joblib.load("app/models/symptom/model.pkl")
+vectorizer = joblib.load("app/models/symptom/vectorizer.pkl")
 
-def predict(symptoms):
-    # If symptoms is a list, join into a single string
-    if isinstance(symptoms, list):
-        symptoms = " ".join(str(s) for s in symptoms)
-    # Ensure symptoms is a string
-    symptoms = str(symptoms)
-
-    X = vectorizer.transform([symptoms])
+def predict(symptoms_text):
+    X = vectorizer.transform([symptoms_text])
+    
     probs = model.predict_proba(X)[0]
-
     classes = model.classes_
 
     all_predictions = [
-        {"disease": str(cls), "probability": float(prob)}
-        for cls, prob in zip(classes, probs)
+        {"disease": classes[i], "probability": float(probs[i])}
+        for i in range(len(classes))
     ]
 
     all_predictions.sort(key=lambda x: x["probability"], reverse=True)
 
     return {
-        "all_predictions": all_predictions
+        "all_predictions": all_predictions,
+        "top_disease": all_predictions[0]["disease"],
+        "confidence": all_predictions[0]["probability"]
     }

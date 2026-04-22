@@ -2,14 +2,13 @@ def decide_action(risk_score, triage_level):
 
     t = triage_level.upper()
 
-    if "CRITICAL" in t:
-        return "CALL_EMERGENCY_IMMEDIATELY"
+    if "CRITICAL" in t or risk_score >= 90:
+        return "CALL_EMERGENCY_SERVICES_IMMEDIATELY"
 
-    elif "HIGH" in t:
-        return "URGENT_DOCTOR_VISIT"
+    if "HIGH" in t or risk_score >= 75:
+        return "CONSULT_DOCTOR_WITHIN_24_HOURS"
 
-    elif "MID" in t:
-        return "DOCTOR_CONSULTATION"
+    if "MID" in t or risk_score >= 50:
+        return "HOME_CARE_WITH_MONITORING"
 
-    else:
-        return "HOME_CARE_POSSIBLE"
+    return "HOME_CARE_POSSIBLE"

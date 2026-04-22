@@ -1,21 +1,24 @@
-def boost_prediction(symptoms, predictions):
+def rule_engine(symptoms: str):
+    text = symptoms.lower()
 
-    # safety check (VERY IMPORTANT)
-    if not predictions or isinstance(predictions[0], float):
-        return []
+    if ("pain during urination" in text and ("pink" in text or "blood" in text or "brown" in text)):
 
-    keyword_map = {
-        "fever": "viral_fever",
-        "chest pain": "heart_issue",
-        "headache": "migraine"
-    }
+        severity = 0.75  # base severity
 
-    symptoms = symptoms.lower()
+        # increase severity if blood is present strongly
+        if "blood" in text:
+            severity = 0.9
+        elif "brown" in text:
+            severity = 0.85
 
-    for key, disease in keyword_map.items():
-        if key in symptoms:
-            for p in predictions:
-                if p["disease"] == disease:
-                    p["probability"] = min(1.0, p["probability"] + 0.2)
+        return {
+            "diseases": [
+                ("urinary_tract_infection", 0.95),
+                ("kidney_stone", 0.9),
+                ("bladder_infection", 0.85)
+            ],
+            "override": True,
+            "severity": severity   # ✅ NEW
+        }
 
-    return sorted(predictions, key=lambda x: x["probability"], reverse=True)
+    return {"override": False}
