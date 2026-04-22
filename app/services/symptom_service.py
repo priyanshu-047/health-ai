@@ -10,9 +10,15 @@ from app.services.home_remedy_service import get_home_remedies
 def analyze_symptoms(data):
 
     symptoms = data.get("symptoms", "")
+    
+    # Convert list of symptoms to a single string
+    if isinstance(symptoms, list):
+        symptoms_str = " ".join(str(s) for s in symptoms)
+    else:
+        symptoms_str = str(symptoms)
 
     # 1. ML prediction
-    ml = predict(symptoms)
+    ml = predict(symptoms_str)
 
     # 2. SAFE CLEANING of predictions
     raw_predictions = ml.get("all_predictions", [])
@@ -22,7 +28,7 @@ def analyze_symptoms(data):
     ]
 
     # 3. Boost predictions
-    boosted = boost_prediction(symptoms, predictions)
+    boosted = boost_prediction(symptoms_str, predictions)
     ml["all_predictions"] = boosted
 
     # 4. Top disease
@@ -31,11 +37,11 @@ def analyze_symptoms(data):
     ml["confidence"] = top["probability"]
 
     # 5. Triage
-    triage_level = triage(symptoms)
+    triage_level = triage(symptoms_str)
 
     # 6. Risk calculation
     probs = [d["probability"] for d in boosted]
-    risk_score = calculate_risk(symptoms, probs, triage_level)
+    risk_score = calculate_risk(symptoms_str, probs, triage_level)
 
     # 7. Decision engine
     recommendation = decide_action(risk_score, triage_level)
@@ -61,18 +67,18 @@ def analyze_symptoms(data):
 
     # 🟠 HIGH → doctor only
     if "HIGH" in t:
-        medicines = get_medicines(ml["top_disease"])
+        medicines = get_medicines(ml["top_disease"], ml["confidence"])
         home_remedies = []
 
     # 🟡 MID → medicine only
     elif "MID" in t:
-        medicines = get_medicines(ml["top_disease"])
+        medicines = get_medicines(ml["top_disease"], ml["confidence"])
         home_remedies = []
 
     # 🟢 LOW → full care
     else:
-        medicines = get_medicines(ml["top_disease"])
-        home_remedies = get_home_remedies(ml["top_disease"])
+        medicines = get_medicines(ml["top_disease"], ml["confidence"])
+        home_remedies = get_home_remedies(ml["top_disease"], ml["confidence"])
 
     return {
         "input": symptoms,
