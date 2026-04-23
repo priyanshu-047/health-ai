@@ -3,6 +3,9 @@ from app.api.router import router
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+@app.get("/")
+def home():
+    return {"message": "Health AI Backend is Running 🚀"}
 
 # Configure CORS to handle preflight requests properly
 app.add_middleware(
