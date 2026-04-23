@@ -1,0 +1,32 @@
+# FastAPI core
+fastapi==0.110.0
+uvicorn[standard]==0.29.0
+
+# Data handling
+pydantic==2.6.4
+python-dotenv==1.0.1
+
+# HTTP requests (external APIs / NIH / medical APIs)
+requests==2.32.3
+httpx==0.27.0
+
+# ML / AI stack (common)
+numpy==1.26.4
+pandas==2.2.2
+scikit-learn==1.4.2
+
+# If you are using NLP / symptom matching / embeddings
+nltk==3.8.1
+scipy==1.13.0
+
+# Logging & utilities
+loguru==0.7.2
+
+# Optional (if you use models / joblib)
+joblib==1.4.2
+
+# CORS support (FastAPI middleware already uses starlette but safe)
+starlette==0.36.3
+
+# Optional: async improvements
+aiofiles==23.2.1
