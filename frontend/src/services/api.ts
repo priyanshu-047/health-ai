@@ -73,6 +73,12 @@ export const dietApi = {
   
   trackNutrition: (data: any) =>
     api.post('/api/diet/track', data),
+  
+  generateChildDietPlan: (data: any) =>
+    api.post('/api/child-diet-plan', data),
+  
+  generateAdultMealPlan: (data: any) =>
+    api.post('/api/adult-meal-plan', data),
 }
 
 export const userApi = {
