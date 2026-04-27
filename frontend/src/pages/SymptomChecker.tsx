@@ -77,6 +77,13 @@ const SymptomChecker = () => {
     }
   }
 
+  const handleAddCurrentSymptom = () => {
+    const trimmed = inputValue.trim()
+    if (trimmed) {
+      addSymptom(trimmed)
+    }
+  }
+
   const removeSymptom = (symptom: string) => {
     setSymptoms(symptoms.filter(s => s !== symptom))
   }
@@ -155,25 +162,51 @@ const SymptomChecker = () => {
       </div>
 
       {/* Input */}
-      <div className="mb-6 relative max-w-xl">
-        <Search className="absolute top-3 left-3 text-gray-400" />
-        <input
-          ref={inputRef}
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          placeholder="Enter symptoms..."
-          className="pl-10 p-3 w-full rounded-xl border shadow-sm"
-        />
-
-        {showSuggestions && (
-          <div className="absolute w-full bg-white border mt-1 rounded-xl shadow z-10">
-            {suggestions.map((s, i) => (
-              <div key={i} onClick={() => addSymptom(s)} className="p-2 hover:bg-gray-100 cursor-pointer text-black">
-                {s}
+      <div className="mb-6 max-w-xl">
+        <div className="flex gap-2">
+          <div className="relative flex-grow">
+            <Search className="absolute top-3 left-3 text-gray-400" />
+            <input
+              ref={inputRef}
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  handleAddCurrentSymptom()
+                }
+              }}
+              placeholder="Enter symptoms (type any symptom)..."
+              className="pl-10 p-3 w-full rounded-xl border shadow-sm"
+            />
+            {showSuggestions && (
+              <div className="absolute w-full bg-white border mt-1 rounded-xl shadow z-10">
+                {suggestions.map((s, i) => (
+                  <div key={i} onClick={() => addSymptom(s)} className="p-2 hover:bg-gray-100 cursor-pointer text-black">
+                    {s}
+                  </div>
+                ))}
+                {inputValue.trim() && !suggestions.includes(inputValue.trim()) && (
+                  <div
+                    onClick={handleAddCurrentSymptom}
+                    className="p-2 hover:bg-gray-100 cursor-pointer text-black border-t border-gray-200 flex items-center"
+                  >
+                    <span className="text-primary-600 font-medium">Add custom:</span>
+                    <span className="ml-2">{inputValue.trim()}</span>
+                  </div>
+                )}
               </div>
-            ))}
+            )}
           </div>
-        )}
+          <button
+            onClick={handleAddCurrentSymptom}
+            className="btn-primary whitespace-nowrap px-4"
+          >
+            Add
+          </button>
+        </div>
+        <p className="text-sm text-gray-500 mt-2">
+          Type any symptom (not limited to list) and press Enter or click Add.
+        </p>
       </div>
 
       {/* Selected */}

@@ -1,7 +1,5 @@
-import { Activity, Heart, Thermometer, Brain, TrendingUp, Calendar, Users, AlertCircle, Clock } from 'lucide-react'
+import { Activity, Heart, Thermometer, Brain } from 'lucide-react'
 import StatCard from '../components/StatCard'
-import HealthChart from '../components/HealthChart'
-import RecentActivity from '../components/RecentActivity'
 
 const Dashboard = () => {
   const stats: Array<{
@@ -46,12 +44,6 @@ const Dashboard = () => {
     },
   ]
 
-  const upcomingAppointments = [
-    { id: 1, title: 'Annual Checkup', doctor: 'Dr. Sharma', time: '10:00 AM', date: 'Tomorrow' },
-    { id: 2, title: 'Dermatology', doctor: 'Dr. Patel', time: '2:30 PM', date: 'Apr 25' },
-    { id: 3, title: 'Nutritionist', doctor: 'Dr. Gupta', time: '11:15 AM', date: 'Apr 28' },
-  ]
-
   return (
     <div className="space-y-8">
       {/* Header */}
@@ -67,75 +59,12 @@ const Dashboard = () => {
         ))}
       </div>
 
-      {/* Charts and Activity */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2">
-          <div className="glass-card rounded-2xl p-6">
-            <div className="flex items-center justify-between mb-6">
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900">Health Trends</h3>
-                <p className="text-gray-600">Last 30 days overview</p>
-              </div>
-              <button className="btn-secondary text-sm">
-                <TrendingUp className="h-4 w-4 mr-2" />
-                View Details
-              </button>
-            </div>
-            <HealthChart />
-          </div>
-        </div>
-
-        <div className="space-y-6">
-          {/* Upcoming Appointments */}
-          <div className="glass-card rounded-2xl p-6">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="font-semibold text-gray-900">Upcoming Appointments</h3>
-              <Calendar className="h-5 w-5 text-primary-500" />
-            </div>
-            <div className="space-y-4">
-              {upcomingAppointments.map((appt) => (
-                <div key={appt.id} className="p-4 bg-gray-50 rounded-xl border border-gray-200">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <h4 className="font-medium text-gray-900">{appt.title}</h4>
-                      <p className="text-sm text-gray-600">{appt.doctor}</p>
-                    </div>
-                    <span className="badge-info">{appt.date}</span>
-                  </div>
-                  <div className="mt-3 flex items-center text-sm text-gray-500">
-                    <Clock className="h-4 w-4 mr-1" />
-                    {appt.time}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Health Tips */}
-          <div className="glass-card rounded-2xl p-6 gradient-success/10 border border-success-100">
-            <div className="flex items-start space-x-3">
-              <AlertCircle className="h-6 w-6 text-success-600 mt-1" />
-              <div>
-                <h4 className="font-semibold text-gray-900">Daily Health Tip</h4>
-                <p className="text-gray-700 mt-2">
-                  Stay hydrated! Drink at least 8 glasses of water today. Proper hydration improves cognitive function and energy levels.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Recent Activity */}
-      <div className="glass-card rounded-2xl p-6">
-        <div className="flex items-center justify-between mb-6">
-          <div>
-            <h3 className="text-lg font-semibold text-gray-900">Recent Activity</h3>
-            <p className="text-gray-600">Your health interactions and updates</p>
-          </div>
-          <Users className="h-5 w-5 text-gray-400" />
-        </div>
-        <RecentActivity />
+      {/* Simple placeholder for future content */}
+      <div className="glass-card rounded-2xl p-8 text-center">
+        <h3 className="text-xl font-semibold text-gray-900 mb-2">More features coming soon</h3>
+        <p className="text-gray-600">
+          Health charts, upcoming appointments, and activity feed will be available shortly.
+        </p>
       </div>
     </div>
   )

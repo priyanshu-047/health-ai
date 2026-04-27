@@ -2,7 +2,11 @@ import { useState } from 'react'
 import { User, Loader2, Calculator, Activity, Heart, Apple, Utensils, Droplets, Flame, Coffee, Beef, Fish, Egg, Milk, Banana, Wheat, AlertCircle } from 'lucide-react'
 import { dietApi } from '../services/api'
 
-const AdultMealPlanForm = () => {
+interface AdultMealPlanFormProps {
+  onSuccess?: (data: any) => void;
+}
+
+const AdultMealPlanForm: React.FC<AdultMealPlanFormProps> = ({ onSuccess }) => {
   const [loading, setLoading] = useState(false)
   const [mealPlan, setMealPlan] = useState<any>(null)
   const [error, setError] = useState<string>('')
@@ -113,6 +117,10 @@ const AdultMealPlanForm = () => {
       if (response.data.success) {
         setMealPlan(response.data)
         setSuccess(true)
+        // Call onSuccess callback if provided
+        if (onSuccess) {
+          onSuccess(response.data)
+        }
       } else {
         setError(response.data.error || 'Failed to generate meal plan')
       }

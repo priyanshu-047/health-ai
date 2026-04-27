@@ -1,0 +1,51 @@
+spring:
+  application:
+    name: health-ai-backend
+
+  data:
+    mongodb:
+      uri: ${MONGODB_ATLAS_URI:mongodb://localhost:27017/health_ai}
+      auto-index-creation: true
+
+  jackson:
+    default-property-inclusion: NON_NULL
+    serialization:
+      write-dates-as-timestamps: false
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+# Ollama Configuration
+ollama:
+  base-url: ${OLLAMA_BASE_URL:http://localhost:11434}
+  model: ${OLLAMA_MODEL:llama3}
+  timeout:
+    connect: 5000
+    read: 30000
+
+# Logging
+logging:
+  level:
+    com.healthai.backend: DEBUG
+    org.springframework.web.reactive: INFO
+    org.springframework.data.mongodb: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %highlight(%-5level) - %cyan(%logger{36}) - %msg%n"
+
+# Actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+
+# Caching
+spring.cache:
+  type: caffeine
+  caffeine:
+    spec: maximumSize=100,expireAfterWrite=10m
